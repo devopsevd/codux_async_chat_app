@@ -1,0 +1,386 @@
+/* frontend/src/styles.css */
+/* Import Roboto font (or choose your preferred method) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif; /* Example: Roboto, adjust as desired */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #333; /* Default text color */
+}
+
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px; /* Increased padding */
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 30px; /* Increased margin */
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd; /* Add header border */
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 0;
+    font-size: 2.2em; /* Larger header font */
+    font-weight: 700; /* Bold header font */
+}
+
+.app-sign-out-button {
+    margin-top: 0;
+    margin-left: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+}
+
+/* Auth Container Styles - Slightly refined */
+.auth-container {
+    background-color: #fff;
+    padding: 40px; /* Increased padding */
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* More pronounced shadow */
+    text-align: center;
+}
+
+.auth-container p {
+    margin-bottom: 25px;
+    font-size: 1.1em;
+    color: #555;
+}
+/*.input-area input[type="text"],*/
+.auth-container input[type="email"],
+.auth-container input[type="password"]
+ {
+    padding: 14px;
+    margin-right: 0;
+    border: 1px solid #ccc; /* Lighter border */
+    border-radius: 10px;
+    width: 100%; /* Slightly wider input */
+    font-size: 1em;
+    max-width: 350px; /* Limit max width of inputs */
+    max-width: 350px; /* Limit max width of inputs */
+}
+
+.auth-container .input-group {
+    display: flex;
+    flex-direction: column; /* Stack label and input vertically */
+    margin-bottom: 20px; /* Spacing between input groups */
+    text-align: left; /* Align text to the left */
+    width: 100%; /* Input group takes full width */
+    max-width: 350px; /* Limit max width of input groups */
+}
+
+.auth-container label {
+    text-align: left;
+    margin-bottom: 10px; /* Spacing below label */
+    font-weight: 500; /* Slightly bolder label font */
+    display: block; /* Make labels take full width */
+}
+
+.auth-container .toggle-auth {
+    display: none; /* **NEW: Hide the toggle auth (Sign Up/Login) button** */
+}
+
+.auth-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Stretch form elements to fill container width */
+    gap: 5px; /* Reduced gap between form elements */
+}
+
+.auth-container .button-group {
+    text-align: center;
+    margin-top: 15px; /* Add margin above button group */
+}
+
+
+.auth-container button,
+.input-area button,
+.user-info button,
+.create-session-button,
+.terminate-session-button,
+.app-sign-out-button { /* Apply consistent button style to all buttons */
+    padding: 12px 25px; /* Slightly larger button padding */
+    border: none;
+    border-radius: 8px; /* More rounded button corners */
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em;
+    font-weight: 500; /* Slightly bolder button text */
+    margin-top: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Button shadow */
+}
+
+.auth-container button:hover,
+.input-area button:hover,
+.user-info button:hover,
+.create-session-button:hover,
+.terminate-session-button:hover,
+.app-sign-out-button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+
+.oauth-login button {
+    background-color: #4285f4; /* Google Blue */
+}
+
+.oauth-login button:hover {
+    background-color: #357ae8;
+}
+
+/* Refine Chat Window Container for Fixed Header/Footer */
+.chat-window-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: none;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    border: 1px solid #eee;
+    height: 600px; /* **CHANGED: Fixed height for chat-window-container** */
+    display: flex; /* Ensure flex layout */
+    flex-direction: column;
+}
+
+
+.user-info {
+    padding: 15px 25px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-info.session-actions {
+    /* ... (rest of user-info.session-actions styles) ... */
+    flex-shrink: 0; /* **NEW: Prevent user-info from shrinking** */
+    height: fit-content;
+}
+
+.chat-window {
+    padding: 25px;
+    overflow-y: auto; /* Keep scroll for chat-window content */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex-grow: 1;
+    height: auto; /* **CHANGED: height: auto for chat-window (important)** */
+    max-height: none; /* **CHANGED: max-height: none for chat-window** */
+}
+
+.message {
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 25px; /* More rounded message bubbles */
+    clear: both;
+    max-width: 80%; /* Limit message bubble width */
+    word-wrap: break-word;
+}
+
+.message.sent {
+    background-color: #e2f7cb; /* Light green for sent */
+    align-self: flex-end;
+    float: right;
+    color: #333; /* Dark text color for sent messages */
+}
+
+.message.received {
+    background-color: #f0f0f0; /* Light gray for received */
+    align-self: flex-start;
+    float: left;
+    color: #333; /* Dark text color for received messages */
+}
+
+
+.message-content {
+    font-size: 1em;
+    line-height: 1.4; /* Improved line height for readability */
+}
+
+.message-sender {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 8px;
+    text-align: right;
+}
+
+.message.received .message-sender {
+    text-align: left;
+}
+
+
+.input-area {
+    padding: 25px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0; /* **NEW: Prevent input-area from shrinking** */
+    height: fit-content; /* **NEW: height: fit-content for input-area** */
+}
+
+.input-area input[type="text"] {
+    flex-grow: 1;
+    margin-right: 15px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+
+/* Session Lists and Layout */
+.chat-layout {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 30px; /* Increased top margin */
+    border-radius: 12px; /* Rounded corners for layout */
+    overflow: hidden; /* Clip rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow for layout */
+    border: 1px solid #eee; /* Light border for layout */
+}
+
+
+.active-sessions-column,
+.closed-sessions-column {
+    width: 25%; /* Slightly wider session columns */
+    padding: 25px;
+    border-right: 1px solid #eee;
+    height: 600px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Remove border-right for closed-sessions-column */
+.closed-sessions-column {
+    border-right: none;
+    border-left: 1px solid #eee; /* Add left border to closed sessions column */
+}
+
+
+/* Refine Chat Area Scrolling */
+.chat-area {
+    width: 50%; /* Adjust chat area width */
+    padding: 25px;
+    flex-grow: 1;
+    height: 600px;
+    overflow-y: scroll; /* **CHANGED: scroll instead of auto** */
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    display: flex; /* **NEW: Enable flex layout for chat area** */
+    flex-direction: column; /* **NEW: Stack chat content vertically** */
+}
+
+
+/* Session List Container & Header */
+.session-lists-container {
+    display: flex;
+    width: 40%;
+}
+
+.session-list-header {
+    width: 100%;
+    margin-bottom: 20px; /* Add margin below header/button */
+}
+
+
+/* "Create New Session" Button - Refined Style */
+.create-session-button {
+    margin-bottom: 20px; /* Increased margin below button */
+    padding: 14px 28px; /* Even larger button padding */
+    font-size: 1.1em; /* Slightly larger font */
+    font-weight: 600; /* Bolder font weight */
+    background-color: #28a745; /* Green color for create button */
+    color: white;
+    border: none;
+    border-radius: 10px; /* More rounded button */
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition with shadow */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+    align-self: flex-start;
+    width: auto;
+}
+
+.create-session-button:hover {
+    background-color: #218838;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); /* Darker shadow on hover */
+}
+
+
+/* Session List Styles - Refined */
+.session-list-container {
+    margin-bottom: 25px;
+}
+
+.session-list {
+    list-style: none;
+    padding: 0;
+}
+
+.session-item {
+    padding: 15px 20px; /* Increased padding in list items */
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-size: 1em;
+    border-radius: 8px; /* Rounded corners for list items */
+    margin-bottom: 8px; /* Spacing between list items */
+}
+
+.session-item:last-child {
+    border-bottom: none;
+}
+
+.session-item:hover {
+    background-color: #f9f9f9;
+}
+
+
+/* "No Session Selected" and "Session Closed" Messages - Refined */
+.chat-area .no-session-selected,
+.chat-area .session-closed-message {
+    padding: 30px; /* Increased padding for messages */
+    text-align: center;
+    color: #777;
+    font-size: 1.1em;
+}
+
+.chat-area .no-session-selected {
+    color: #999; /* Lighter color for "no session selected" */
+}
+
+
+.chat-area .session-closed-message {
+    padding: 20px;
+    text-align: center;
+    background-color: #ffe0b2; /* Light orange for closed session message */
+    color: #7a5230;
+    border-top: 1px solid #ffb74d;
+    border-radius: 8px; /* Rounded corners for closed session message */
+    margin: 15px; /* Margin around closed session message */
+}
+
+.no-messages {
+    padding: 20px;
+    text-align: center;
+    color: #999;
+    font-style: italic; /* Italicize "No messages yet" message */
+}
